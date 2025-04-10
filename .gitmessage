@@ -1,0 +1,21 @@
+# <tipo>[escopo opcional]: <descrição>
+# 
+# [corpo opcional]
+# 
+# [rodapé(s) opcional(is)]
+# 
+# Tipos:
+#   feat:     Nova funcionalidade
+#   fix:      Correção de bug
+#   docs:     Alterações em documentação
+#   style:    Formatação de código
+#   refactor: Refatoração de código
+#   test:     Testes
+#   chore:    Alterações em processo de build
+#   perf:     Melhorias de performance
+#   ci:       Alterações em CI
+#   build:    Alterações no sistema de build
+# 
+# Exemplos:
+#   feat(auth): adiciona suporte para autenticação OAuth2
+#   fix(pagamentos): corrige cálculo de taxa para valores fracionados

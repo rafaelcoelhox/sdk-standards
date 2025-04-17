@@ -24,13 +24,13 @@ A AbacatePay mantém SDKs em várias linguagens de programação para facilitar 
 - [Código de Conduta](./contributing/CODE_OF_CONDUCT.md)
 - [Guia de Estilo](./contributing/STYLE_GUIDE.md)
 - [Diretrizes de Testes](./contributing/TESTING_GUIDELINES.md)
-- [Diretrizes de Documentação](./contributing/DOCUMENTATION_GUIDELINES.md)
+- [Diretrizes de Documentação](./maintainers/DOCUMENTATION_GUIDELINES.md)
 - [Convenção de Commits](./contributing/COMMIT_CONVENTION.md)
 
 ### Para Mantenedores
 - [Guia para Mantenedores](./maintainers/MAINTAINERS.md)
 - [Política de Segurança](./maintainers/SECURITY.md)
-- [Diretrizes de Documentação](./contributing/DOCUMENTATION_GUIDELINES.md)
+- [Diretrizes de Documentação](./maintainers/DOCUMENTATION_GUIDELINES.md)
 - [Processo de Release](./maintainers/RELEASE_PROCESS.md)
 - [CI/CD](./maintainers/CI_CD.md)
 - [Gerenciamento de Dependências](./maintainers/DEPENDENCY_MANAGEMENT.md)

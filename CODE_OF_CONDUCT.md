@@ -12,7 +12,7 @@ Exemplos de comportamento que contribuem para um ambiente positivo:
 
 * Demonstrar empatia e bondade para com outras pessoas
 * Respeitar opiniões, pontos de vista e experiências diferentes
-* Dar e aceitar feedback construtivo com elegância
+* Dar e aceitar feedback construtivo com educação e respeito
 * Aceitar a responsabilidade e pedir desculpas aos afetados por nossos erros
 * Focar no que é melhor não apenas para nós como indivíduos, mas para a comunidade como um todo
 

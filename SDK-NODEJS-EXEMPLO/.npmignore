@@ -1,0 +1,22 @@
+# Arquivos de desenvolvimento
+src/
+tests/
+examples/
+coverage/
+.github/
+.vscode/
+.idea/
+
+# Arquivos de configuração
+.eslintrc.js
+.prettierrc.js
+jest.config.js
+tsconfig.json
+.gitignore
+.npmignore
+
+# Outros
+*.log
+*.tsbuildinfo
+.DS_Store
+Thumbs.db 

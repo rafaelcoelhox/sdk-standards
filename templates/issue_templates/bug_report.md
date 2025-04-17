@@ -1,59 +1,36 @@
 ---
-name: Bug report
-about: Relate um problema no SDK
+name: Relato de Bug
+about: Crie um relatório para nos ajudar a melhorar
 title: '[BUG] '
 labels: bug
 assignees: ''
 ---
 
 ## Descrição do Bug
-Uma descrição clara e concisa do problema.
+Uma descrição clara e concisa do bug.
 
-## Passos para Reproduzir
-1. ...
-2. ...
-3. ...
-
-## Comportamento Esperado
-Uma descrição clara do que você esperava que acontecesse.
-
-## Comportamento Atual
-O que aconteceu em vez do comportamento esperado.
-
-## Ambiente
-- Versão do SDK: [ex: 1.2.3]
-- Linguagem/Plataforma: [ex: Node.js 16.x]
-- Sistema Operacional: [ex: Windows 10, Ubuntu 20.04]
-- Dependências relevantes:
-
-## Informações Adicionais
-Qualquer informação adicional, contexto ou capturas de tela sobre o problema.---
-name: Bug report
-about: Relate um problema no SDK
-title: '[BUG] '
-labels: bug
-assignees: ''
----
-
-## Descrição do Bug
-Uma descrição clara e concisa do problema.
-
-## Passos para Reproduzir
-1. ...
-2. ...
-3. ...
+## Como Reproduzir
+Passos para reproduzir o comportamento:
+1. Ir para '...'
+2. Clicar em '....'
+3. Rolar até '....'
+4. Ver o erro
 
 ## Comportamento Esperado
-Uma descrição clara do que você esperava que acontecesse.
+Uma descrição clara e concisa do que você esperava que acontecesse.
 
-## Comportamento Atual
-O que aconteceu em vez do comportamento esperado.
+## Capturas de Tela
+Se aplicável, adicione capturas de tela para ajudar a explicar seu problema.
 
 ## Ambiente
-- Versão do SDK: [ex: 1.2.3]
-- Linguagem/Plataforma: [ex: Node.js 16.x]
-- Sistema Operacional: [ex: Windows 10, Ubuntu 20.04]
-- Dependências relevantes:
+ - SDK Versão: [ex: 1.0.0]
+ - Linguagem e Versão: [ex: Node.js 18.x]
+ - Sistema Operacional: [ex: Ubuntu 22.04, Windows 11]
+ - Navegador (se aplicável): [ex: Chrome, Safari]
 
-## Informações Adicionais
-Qualquer informação adicional, contexto ou capturas de tela sobre o problema.
+## Contexto Adicional
+Adicione qualquer outro contexto sobre o problema aqui.
+
+## Código de Exemplo
+```code
+// Se possível, forneça um exemplo de código que demonstre o bug

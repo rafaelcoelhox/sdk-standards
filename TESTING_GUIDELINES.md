@@ -1,208 +1,146 @@
 # Diretrizes de Testes
 
-Este documento estabelece as diretrizes para escrever e manter testes nos SDKs da AbacatePay.
+Este documento estabelece as diretrizes simplificadas para escrever e manter testes nos SDKs da AbacatePay.
 
 ## Princípios
 
-1. **Cobertura abrangente**: Teste todas as funcionalidades públicas
-2. **Isolamento**: Testes devem ser independentes uns dos outros
-3. **Determinismo**: Testes devem produzir os mesmos resultados em cada execução
-4. **Velocidade**: A suite de testes deve executar rapidamente
-5. **Manutenibilidade**: Testes devem ser fáceis de entender e manter
+1. **Foco no essencial**: Teste as funcionalidades críticas e APIs públicas
+2. **Simplicidade**: Mantenha os testes simples e diretos
+3. **Manutenibilidade**: Testes devem ser fáceis de entender e manter
 
 ## Tipos de Testes
 
+Para os SDKs da AbacatePay, focamos principalmente em **testes unitários**:
+
 ### Testes Unitários
 
-Testam unidades individuais de código (funções, métodos, classes) isoladamente.
+Testes unitários verificam o comportamento de funções e classes individuais.
 
-```javascript
-// Exemplo de teste unitário
-describe('Validator', () => {
-  describe('validateCPF', () => {
-    it('should return true for valid CPF', () => {
-      expect(Validator.validateCPF('123.456.789-09')).toBe(true);
-    });
+**O que testar:**
+- Métodos públicos da API do SDK
+- Lógica de validação de entrada
+- Tratamento de erros
+- Transformações de dados
 
-    it('should return false for invalid CPF', () => {
-      expect(Validator.validateCPF('111.111.111-11')).toBe(false);
-    });
-  });
-});
-```
-
-### Testes de Integração
-
-Testam a interação entre diferentes partes do sistema.
-
-```javascript
-// Exemplo de teste de integração
-describe('BillingClient', () => {
-  it('should create a billing and retrieve it', async () => {
-    const client = new AbacatePay('test_api_key');
-    
-    // Criar cobrança
-    const billing = await client.billing.create({
-      amount: 1000,
-      description: 'Test billing'
-    });
-    
-    // Recuperar a cobrança criada
-    const retrieved = await client.billing.get(billing.id);
-    
-    expect(retrieved.id).toBe(billing.id);
-    expect(retrieved.amount).toBe(1000);
-  });
-});
-```
-
-### Testes de API
-
-Testam a interação com a API externa, geralmente usando mocks.
-
-```javascript
-// Exemplo de teste de API com mocks
-describe('API Client', () => {
-  beforeEach(() => {
-    nock('https://api.abacatepay.com')
-      .post('/v1/billings')
-      .reply(200, { id: 'bill_123', status: 'pending' });
-  });
-
-  it('should make API request correctly', async () => {
-    const client = new AbacatePay('test_api_key');
-    const result = await client.billing.create({ amount: 1000 });
-    
-    expect(result.id).toBe('bill_123');
-  });
-});
-```
+**O que não é necessário testar:**
+- Código privado/interno (teste através da API pública)
+- Implementações de bibliotecas de terceiros
+- Código trivial (getters/setters simples)
 
 ## Ferramentas
 
-Utilizamos as seguintes ferramentas para testes:
+- **Jest**: Framework de teste principal
+- **Nock**: Para simular chamadas HTTP
+- **TypeScript**: Para tipagem estática
 
-- **Jest**: Framework principal de testes
-- **nock**: Para mockar requisições HTTP
-- **sinon**: Para stubs e mocks de funções
-- **faker**: Para geração de dados de teste
+## Estrutura de Testes
 
-## Organização dos Testes
-
-Organize os testes seguindo a estrutura do código:
+Organize os testes em uma estrutura que espelhe o código-fonte:
 
 ```
 src/
-  billing/
-    billing.ts
-    billing.test.ts
-  customer/
-    customer.ts
-    customer.test.ts
+  resources/
+    payments.ts
+    customers.ts
+tests/
+  resources/
+    payments.test.ts
+    customers.test.ts
 ```
 
-## Mocks e Fixtures
+## Mocks e Stubs
 
-### Dados de Teste
-
-Mantenha dados de teste em arquivos separados:
+Use mocks para isolar o código sendo testado:
 
 ```javascript
-// fixtures/billings.js
-export const validBilling = {
-  id: 'bill_123',
-  amount: 1000,
+// Mock da resposta da API
+const mockResponse = {
+  id: 'pay_123',
   status: 'pending',
-  created_at: '2023-01-01T00:00:00Z'
+  amount: 1000
 };
+
+// Mock da chamada HTTP
+nock('https://api.abacatepay.com')
+  .post('/v1/payments')
+  .reply(200, mockResponse);
 ```
 
-### Mocks de API
+## Exemplos de Testes
 
-Use nock para mockar respostas da API:
+### Teste de Criação de Pagamento
 
 ```javascript
-import nock from 'nock';
-
-// Configure mock antes dos testes
-beforeEach(() => {
-  nock('https://api.abacatepay.com')
-    .get('/v1/billings/bill_123')
-    .reply(200, validBilling);
+describe('PaymentsResource', () => {
+  let client;
+  
+  beforeEach(() => {
+    client = new AbacatePay({
+      apiKey: 'test_key',
+      environment: 'sandbox'
+    });
+  });
+  
+  it('should create a payment', async () => {
+    // Arrange
+    const paymentData = {
+      amount: 1000,
+      currency: 'BRL',
+      description: 'Test payment'
+    };
+    
+    nock('https://api.sandbox.abacatepay.com')
+      .post('/v1/payments', paymentData)
+      .reply(200, { id: 'pay_123', ...paymentData, status: 'pending' });
+    
+    // Act
+    const payment = await client.payments.create(paymentData);
+    
+    // Assert
+    expect(payment.id).toBe('pay_123');
+    expect(payment.status).toBe('pending');
+    expect(payment.amount).toBe(1000);
+  });
 });
+```
 
-// Limpe mocks após os testes
-afterEach(() => {
-  nock.cleanAll();
+### Teste de Tratamento de Erro
+
+```javascript
+it('should handle validation errors', async () => {
+  // Arrange
+  const invalidData = {
+    amount: -100, // Valor inválido
+    currency: 'BRL'
+  };
+  
+  // Act & Assert
+  await expect(
+    client.payments.create(invalidData)
+  ).rejects.toThrow(ValidationError);
 });
 ```
 
 ## Cobertura de Código
 
-Mantemos uma cobertura mínima de 80% para todos os SDKs:
+Mantenha uma cobertura de código razoável (>80%) para as funcionalidades principais do SDK. Não é necessário buscar 100% de cobertura, especialmente para código trivial.
+
+## Execução de Testes
+
+Execute os testes como parte do processo de desenvolvimento:
 
 ```bash
+# Executar todos os testes
+npm test
+
+# Executar testes com cobertura
 npm run test:coverage
 ```
 
-Áreas críticas como validação, autenticação e manipulação de erros devem ter cobertura de 100%.
+## Integração Contínua
 
-## Testes de Regressão
+Os testes são executados automaticamente em cada pull request e push para a branch principal através do GitHub Actions.
 
-Antes de cada release, execute a suite completa de testes para garantir que não haja regressões:
+## Conclusão
 
-```bash
-npm run test:all
-```
-
-## Testes de Integração Contínua
-
-Todos os testes são executados automaticamente em cada PR e push para a branch principal através do GitHub Actions.
-
-## Boas Práticas
-
-1. **Um assert por teste**: Mantenha os testes focados em verificar uma única coisa
-2. **Nomes descritivos**: Use nomes que descrevam o comportamento esperado
-3. **Arrange-Act-Assert**: Estruture seus testes neste padrão
-4. **Evite lógica complexa**: Testes devem ser simples e diretos
-5. **Teste casos de erro**: Não teste apenas o caminho feliz
-
-## Exemplos
-
-### Teste de Sucesso
-
-```javascript
-it('should create a customer successfully', async () => {
-  // Arrange
-  const client = new AbacatePay('test_api_key');
-  const customerData = {
-    name: 'John Doe',
-    email: 'john@example.com',
-    taxId: '123.456.789-09'
-  };
-  
-  // Act
-  const customer = await client.customer.create(customerData);
-  
-  // Assert
-  expect(customer).toHaveProperty('id');
-  expect(customer.name).toBe(customerData.name);
-});
-```
-
-### Teste de Erro
-
-```javascript
-it('should throw ValidationError for invalid data', async () => {
-  // Arrange
-  const client = new AbacatePay('test_api_key');
-  const invalidData = {
-    name: '', // Nome vazio, inválido
-    email: 'invalid-email'
-  };
-  
-  // Act & Assert
-  await expect(
-    client.customer.create(invalidData)
-  ).rejects.toThrow(ValidationError);
-}); 
+Estas diretrizes simplificadas focam no essencial para garantir a qualidade do SDK sem adicionar complexidade desnecessária. Para SDKs pequenos, os testes unitários bem escritos são suficientes para garantir a confiabilidade do código.

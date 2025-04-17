@@ -10,7 +10,7 @@ Este documento estabelece as diretrizes simplificadas para escrever e manter tes
 
 ## Tipos de Testes
 
-Para os SDKs da AbacatePay, focamos principalmente em **testes unitários**:
+Para os SDKs da AbacatePay, focamos principalmente em **testes unitários** e **verificação de código estático**:
 
 ### Testes Unitários
 
@@ -27,11 +27,22 @@ Testes unitários verificam o comportamento de funções e classes individuais.
 - Implementações de bibliotecas de terceiros
 - Código trivial (getters/setters simples)
 
+### Testes de Linting
+
+Verificações estáticas de código que garantem a consistência e qualidade do código:
+
+- **Estilo de código**: Formatação, indentação, espaçamento
+- **Boas práticas**: Evitar código duplicado, funções muito longas
+- **Potenciais bugs**: Variáveis não utilizadas, condições que sempre retornam o mesmo valor
+- **Consistência de tipos**: Verificação de tipos TypeScript
+
 ## Ferramentas
 
 - **Jest**: Framework de teste principal
 - **Nock**: Para simular chamadas HTTP
 - **TypeScript**: Para tipagem estática
+- **ESLint**: Para análise estática de código
+- **Prettier**: Para formatação consistente
 
 ## Estrutura de Testes
 
@@ -121,6 +132,38 @@ it('should handle validation errors', async () => {
 });
 ```
 
+## Configuração de Linting
+
+Configure o ESLint e Prettier para garantir a qualidade do código:
+
+```javascript
+// .eslintrc.js
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier'
+  ],
+  plugins: ['@typescript-eslint'],
+  rules: {
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-explicit-any': 'warn'
+  }
+};
+```
+
+Execute a verificação de linting como parte do processo de teste:
+
+```bash
+# Verificar problemas de linting
+npm run lint
+
+# Corrigir problemas de linting automaticamente quando possível
+npm run lint:fix
+```
+
 ## Cobertura de Código
 
 Mantenha uma cobertura de código razoável (>80%) para as funcionalidades principais do SDK. Não é necessário buscar 100% de cobertura, especialmente para código trivial.
@@ -135,12 +178,30 @@ npm test
 
 # Executar testes com cobertura
 npm run test:coverage
+
+# Executar linting
+npm run lint
 ```
 
 ## Integração Contínua
 
-Os testes são executados automaticamente em cada pull request e push para a branch principal através do GitHub Actions.
+Os testes unitários e verificações de linting são executados automaticamente em cada pull request e push para a branch principal através do GitHub Actions:
+
+```yaml
+# Exemplo de configuração no GitHub Actions
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+```
 
 ## Conclusão
 
-Estas diretrizes simplificadas focam no essencial para garantir a qualidade do SDK sem adicionar complexidade desnecessária. Para SDKs pequenos, os testes unitários bem escritos são suficientes para garantir a confiabilidade do código.
+Estas diretrizes simplificadas focam no essencial para garantir a qualidade do SDK sem adicionar complexidade desnecessária. Para SDKs pequenos, os testes unitários bem escritos e verificações de linting são suficientes para garantir a confiabilidade e manutenibilidade do código.

@@ -29,6 +29,8 @@ A AbacatePay mantém SDKs em várias linguagens de programação para facilitar 
 
 ### Para Mantenedores
 - [Guia para Mantenedores](./maintainers/MAINTAINERS.md)
+- [Política de Segurança](./maintainers/SECURITY.md)
+
 - [Processo de Release](./maintainers/RELEASE_PROCESS.md)
 - [CI/CD](./maintainers/CI_CD.md)
 - [Gerenciamento de Dependências](./maintainers/DEPENDENCY_MANAGEMENT.md)

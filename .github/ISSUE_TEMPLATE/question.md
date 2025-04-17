@@ -19,13 +19,9 @@ Por favor, forneça contexto sobre o que você está tentando realizar:
 // Seu código aqui
 const abacate = AbacatePay('api_key');
 // O que você está tentando fazer?
-```
-
-## O que você já tentou?
+O que você já tentou?
 Descreva as abordagens ou soluções que você já tentou.
-
-## Documentação Consultada
+Documentação Consultada
 Links para a documentação que você já consultou relacionada à sua questão.
-
-## Resultado Esperado
+Resultado Esperado
 O que você está esperando conseguir ou entender melhor?

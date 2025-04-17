@@ -28,16 +28,14 @@ try {
 } catch (error) {
   console.error(error);
 }
-```
+Ambiente
 
-## Ambiente
-- SDK Versão: [ex: 1.2.1]
-- Node.js Versão: [ex: 16.15.0]
-- Sistema Operacional: [ex: Ubuntu 22.04, Windows 11]
-- Ambiente: [ex: Produção, Desenvolvimento]
+SDK Versão: [ex: 1.2.1]
+Node.js Versão: [ex: 16.15.0]
+Sistema Operacional: [ex: Ubuntu 22.04, Windows 11]
+Ambiente: [ex: Produção, Desenvolvimento]
 
-## Capturas de Tela ou Logs
+Capturas de Tela ou Logs
 Se aplicável, adicione capturas de tela ou logs para ajudar a explicar seu problema.
-
-## Contexto Adicional
+Contexto Adicional
 Adicione qualquer outro contexto sobre o problema aqui.

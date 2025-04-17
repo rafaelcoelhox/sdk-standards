@@ -10,8 +10,12 @@ SDK oficial para integração com a plataforma AbacatePay em Node.js/JavaScript.
 
 ```bash
 npm install abacatepay-nodejs-sdk
-Uso Rápido
-javascriptimport AbacatePay from 'abacatepay-nodejs-sdk';
+```
+
+## Uso Rápido
+
+```javascript
+import AbacatePay from 'abacatepay-nodejs-sdk';
 
 // Inicialize o SDK com sua API key
 const abacate = AbacatePay('your_api_key');
@@ -36,22 +40,31 @@ const billing = await abacate.billing.create({
 });
 
 console.log(billing.url); // URL de pagamento para seu cliente
-Funcionalidades
+```
 
-Billing: Criação e gerenciamento de cobranças
-Customers: Gerenciamento de clientes
-Coupons: Criação e gestão de cupons de desconto
-Suporte completo a PIX: Pagamentos instantâneos brasileiros
-TypeScript: Tipos completos para melhor experiência de desenvolvimento
+## Funcionalidades
 
-Documentação Detalhada
-Autenticação
-javascriptimport AbacatePay from 'abacatepay-nodejs-sdk';
+- Billing: Criação e gerenciamento de cobranças
+- Customers: Gerenciamento de clientes
+- Coupons: Criação e gestão de cupons de desconto
+- Suporte completo a PIX: Pagamentos instantâneos brasileiros
+- TypeScript: Tipos completos para melhor experiência de desenvolvimento
+
+## Documentação Detalhada
+
+### Autenticação
+
+```javascript
+import AbacatePay from 'abacatepay-nodejs-sdk';
 
 // Inicialize o SDK com sua API key
 const abacate = AbacatePay('your_api_key');
-Criando uma Cobrança
-javascriptconst billing = await abacate.billing.create({
+```
+
+### Criando uma Cobrança
+
+```javascript
+const billing = await abacate.billing.create({
   frequency: "ONE_TIME",
   methods: ["PIX"],
   products: [
@@ -72,13 +85,21 @@ javascriptconst billing = await abacate.billing.create({
     taxId: "123.456.789-10"
   }
 });
-Listando Cobranças
-javascriptconst billings = await abacate.billing.list();
+```
+
+### Listando Cobranças
+
+```javascript
+const billings = await abacate.billing.list();
 for (const billing of billings) {
   console.log(billing.id, billing.status);
 }
-Gerenciando Clientes
-javascript// Criar um cliente
+```
+
+### Gerenciando Clientes
+
+```javascript
+// Criar um cliente
 const customer = await abacate.customer.create({
   name: "Nome do Cliente",
   cellphone: "(11) 99999-9999",
@@ -88,20 +109,28 @@ const customer = await abacate.customer.create({
 
 // Listar clientes
 const customers = await abacate.customer.list();
-Criando Cupons de Desconto
-javascriptconst coupon = await abacate.coupon.create({
+```
+
+### Criando Cupons de Desconto
+
+```javascript
+const coupon = await abacate.coupon.create({
   code: "PROMO10",
   discountKind: "PERCENTAGE",
   discount: 10,
   maxRedeems: 100
 });
-Requisitos
+```
 
-Node.js 14.x ou superior
-npm ou yarn
+## Requisitos
 
-Configuração para Ambiente de Desenvolvimento
-bash# Clone o repositório
+- Node.js 14.x ou superior
+- npm ou yarn
+
+## Configuração para Ambiente de Desenvolvimento
+
+```bash
+# Clone o repositório
 git clone https://github.com/AbacatePay/abacatepay-nodejs-sdk.git
 cd abacatepay-nodejs-sdk
 
@@ -110,15 +139,22 @@ npm install
 
 # Execute os testes
 npm test
-Contribuindo
+```
+
+## Contribuindo
+
 Contribuições são bem-vindas! Por favor, leia nosso guia de contribuição antes de enviar pull requests.
-Segurança
+
+## Segurança
+
 Se você descobrir uma vulnerabilidade de segurança, por favor envie um email para ajuda@abacatepay.com ao invés de abrir uma issue pública. Mais detalhes em nossa política de segurança.
-Suporte
 
-Documentação oficial: https://docs.abacatepay.com
-GitHub Issues: Para bugs e solicitações de funcionalidades
-Email: ajuda@abacatepay.com
+## Suporte
 
-Licença
+- Documentação oficial: https://docs.abacatepay.com
+- GitHub Issues: Para bugs e solicitações de funcionalidades
+- Email: ajuda@abacatepay.com
+
+## Licença
+
 Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para detalhes.

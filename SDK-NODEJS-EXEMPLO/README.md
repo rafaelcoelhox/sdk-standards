@@ -143,11 +143,22 @@ npm test
 
 ## Contribuindo
 
-Contribuições são bem-vindas! Por favor, leia nosso guia de contribuição antes de enviar pull requests.
+Contribuições são bem-vindas! Por favor, leia nosso [guia de contribuição](https://github.com/rafaelcoelhox/sdk-standards/blob/main/CONTRIBUTING.md) antes de enviar pull requests.
 
 ## Segurança
 
-Se você descobrir uma vulnerabilidade de segurança, por favor envie um email para ajuda@abacatepay.com ao invés de abrir uma issue pública. Mais detalhes em nossa política de segurança.
+Se você descobrir uma vulnerabilidade de segurança, por favor envie um email para ajuda@abacatepay.com ao invés de abrir uma issue pública. Mais detalhes em nossa [política de segurança](https://github.com/rafaelcoelhox/sdk-standards/blob/main/SECURITY.md).
+
+## Documentação Adicional
+
+- [Processo de Release](https://github.com/rafaelcoelhox/sdk-standards/blob/main/RELEASE_PROCESS.md)
+- [Guia de Estilo](https://github.com/rafaelcoelhox/sdk-standards/blob/main/STYLE_GUIDE.md)
+- [Diretrizes de Testes](https://github.com/rafaelcoelhox/sdk-standards/blob/main/TESTING_GUIDELINES.md)
+- [Convenção de Commits](https://github.com/rafaelcoelhox/sdk-standards/blob/main/COMMIT_CONVENTION.md)
+- [Gerenciamento de Dependências](https://github.com/rafaelcoelhox/sdk-standards/blob/main/DEPENDENCY_MANAGEMENT.md)
+- [CI/CD](https://github.com/rafaelcoelhox/sdk-standards/blob/main/CI_CD.md)
+- [Roadmap](https://github.com/rafaelcoelhox/sdk-standards/blob/main/ROADMAP.md)
+- [Código de Conduta](https://github.com/rafaelcoelhox/sdk-standards/blob/main/CODE_OF_CONDUCT.md)
 
 ## Suporte
 
@@ -157,4 +168,4 @@ Se você descobrir uma vulnerabilidade de segurança, por favor envie um email p
 
 ## Licença
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para detalhes.
+Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.

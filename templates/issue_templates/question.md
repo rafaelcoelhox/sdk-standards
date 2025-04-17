@@ -17,3 +17,7 @@ Por favor, forneça contexto sobre o que você está tentando realizar:
 
 ```code
 // Seu código aqui
+O que você já tentou?
+Descreva as abordagens ou soluções que você já tentou.
+Documentação Consultada
+Links para a documentação que você já consultou relacionada à sua questão.

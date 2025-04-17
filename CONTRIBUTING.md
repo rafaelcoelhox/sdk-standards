@@ -1,8 +1,3 @@
-### 2. Criando CONTRIBUTING.md
-
-Agora, vamos criar um arquivo de contribuição padronizado:
-
-```markdown
 # Guia de Contribuição
 
 Obrigado pelo interesse em contribuir para o SDK do AbacatePay! Este documento contém as diretrizes que você deve seguir para contribuir de maneira eficaz.

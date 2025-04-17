@@ -1,4 +1,4 @@
-# Política de Versionamento dos SDKs AbacatePay
+# Política de Versionamento
 
 Este documento descreve a política de versionamento seguida por todos os SDKs oficiais da AbacatePay.
 
@@ -22,6 +22,17 @@ As versões seguem o formato: `MAIOR.MENOR.PATCH`
 | Adicionar suporte para um novo tipo de pagamento | MENOR | 1.2.4 → 1.3.0 |
 | Renomear métodos públicos da API | MAIOR | 1.3.0 → 2.0.0 |
 
+## Gerenciamento com Changesets
+
+Utilizamos [Changesets](https://github.com/changesets/changesets) para gerenciar versões e changelogs:
+
+1. Ao fazer uma alteração, execute: `npm run define:change`
+2. Descreva a alteração e selecione o tipo de versão (patch, minor, major)
+3. Um arquivo será criado na pasta `.changeset/`
+4. Este arquivo deve ser commitado junto com suas alterações
+5. Quando um PR é mesclado na branch principal, o Changeset Bot cria um PR de release
+6. Ao mesclar o PR de release, as versões são atualizadas e um novo pacote é publicado
+
 ## Ciclo de Lançamento
 
 Para manter nossos SDKs atualizados e consistentes, seguimos o seguinte ciclo de lançamento:
@@ -30,9 +41,27 @@ Para manter nossos SDKs atualizados e consistentes, seguimos o seguinte ciclo de
 - **Lançamentos Menores**: A cada 4-6 semanas, para novas funcionalidades
 - **Lançamentos Maiores**: Com planejamento prévio, normalmente a cada 6-12 meses
 
-## Sincronia entre SDKs
+## Pré-lançamentos
 
-Buscamos manter todos os SDKs sincronizados em funcionalidades, mas as versões podem não ser idênticas devido às especificidades de cada linguagem. 
+Para versões em desenvolvimento, usamos os seguintes sufixos:
+
+- **alpha**: Versões iniciais para testes internos
+- **beta**: Versões para testes externos limitados
+- **rc**: Candidatos a lançamento, próximos da versão final
+
+Exemplo: `2.0.0-beta.1`
+
+## Suporte a Versões Anteriores
+
+Nossa política de suporte para versões anteriores:
+
+- Versões MAIORES são suportadas por pelo menos 12 meses após o lançamento da próxima versão MAIOR
+- Correções de segurança críticas podem ser backported para versões mais antigas
+- Versões que atingirem o fim do suporte serão claramente marcadas no README e na documentação
+
+## Sincronização entre SDKs
+
+Buscamos manter todos os SDKs sincronizados em funcionalidades, mesmo que as versões possam não ser idênticas devido às especificidades de cada linguagem.
 
 ### Equivalência Funcional
 
@@ -46,67 +75,6 @@ Mantemos uma tabela de compatibilidade que mapeia as versões entre diferentes S
 |----------------|-------------|------------|---------|----------|--------|
 | v1.0           | 1.x.x       | 1.x.x      | 1.x.x   | 1.x.x    | 1.x.x  |
 | v2.0           | 2.x.x       | 2.x.x      | 2.x.x   | 2.x.x    | 2.x.x  |
-
-## Suporte a Versões Anteriores
-
-Nossa política de suporte para versões anteriores:
-
-- Versões MAIORES são suportadas por pelo menos 12 meses após o lançamento da próxima versão MAIOR
-- Correções de segurança críticas podem ser backported para versões mais antigas
-- Versões que atingirem o fim do suporte serão claramente marcadas no README e na documentação
-
-### Cronograma de Suporte
-
-| Versão | Data de Lançamento | Fim do Suporte | Status      |
-|--------|-------------------|----------------|-------------|
-| 1.x    | 01/01/2023        | 01/01/2025     | Suportada   |
-| 0.x    | 01/01/2022        | 01/01/2024     | Descontinuada |
-
-## Pré-lançamentos
-
-Para versões em desenvolvimento, usamos os seguintes sufixos:
-
-- **alpha**: Primeiras versões de teste, possivelmente instáveis e incompletas
-  - Exemplo: `1.0.0-alpha.1`
-- **beta**: Funcionalidades completas, mas ainda em teste
-  - Exemplo: `1.0.0-beta.1`
-- **rc** (release candidate): Versão candidata ao lançamento final
-  - Exemplo: `1.0.0-rc.1`
-
-## Processo de Release
-
-Nosso processo de lançamento de novas versões:
-
-1. **Preparação**:
-   - Atualização do CHANGELOG.md com todas as alterações
-   - Atualização da versão no arquivo de configuração do projeto
-   - Execução da suite completa de testes
-
-2. **Lançamento**:
-   - Criação de tag no Git (`v1.2.3`)
-   - Publicação nos registros específicos (npm, PyPI, etc.)
-   - Criação de GitHub Release com notas detalhadas
-
-3. **Comunicação**:
-   - Anúncio em canais de comunicação
-   - Atualização da documentação online
-
-## Descontinuação
-
-Quando uma versão MAIOR é descontinuada:
-
-1. Anúncio com pelo menos 3 meses de antecedência
-2. Adição de avisos de depreciação na documentação
-3. Suporte continuado para correções de segurança críticas por 6 meses adicionais
-4. Instruções claras de migração para a nova versão
-
-## Notas de Lançamento e Changelog
-
-Cada SDK mantém um arquivo CHANGELOG.md que segue o formato [Keep a Changelog](https://keepachangelog.com/):
-
-- Versões organizadas em ordem cronológica inversa
-- Cada versão com sua data de lançamento
-- Alterações agrupadas em categorias: Added, Changed, Deprecated, Removed, Fixed, Security
 
 ## Perguntas Frequentes
 

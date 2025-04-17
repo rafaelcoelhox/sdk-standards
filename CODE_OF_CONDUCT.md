@@ -34,7 +34,7 @@ Este Código de Conduta se aplica em todos os espaços da comunidade e também q
 
 ## Execução
 
-Casos de comportamento abusivo, assediador ou inaceitável podem ser relatados à equipe de execução da comunidade em [ajuda@abacatepay.com](mailto:ajuda@abacatepay.com). Todas as reclamações serão analisadas e investigadas prontamente e de forma justa.
+Casos de comportamento abusivo, assediador ou inaceitável podem ser relatados à equipe de execução da comunidade em [conduta@abacatepay.com](mailto:conduta@abacatepay.com). Todas as reclamações serão analisadas e investigadas prontamente e de forma justa.
 
 ## Atribuição
 

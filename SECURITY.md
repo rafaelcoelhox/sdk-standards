@@ -5,14 +5,24 @@
 A equipe do AbacatePay leva a sério a segurança dos nossos SDKs. Se você descobrir uma vulnerabilidade de segurança, por favor, siga estas etapas:
 
 1. **NÃO** abra uma issue pública
-2. Envie um e-mail para [ajuda@abacatepay.com](mailto:ajuda@abacatepay.com)
+2. Envie um e-mail para [seguranca@abacatepay.com](mailto:seguranca@abacatepay.com)
 3. Inclua informações detalhadas sobre a vulnerabilidade
 4. Aguarde uma resposta inicial em até 48 horas
 5. Por favor, evite compartilhar os detalhes da vulnerabilidade publicamente até que tenhamos tido a chance de resolvê-la
 
+## Processo de Resposta
+
+Nossa equipe de segurança segue este processo ao receber um relatório:
+
+1. Confirmação de recebimento dentro de 48 horas
+2. Avaliação inicial da vulnerabilidade em até 5 dias úteis
+3. Desenvolvimento de uma correção e plano de lançamento
+4. Comunicação com o relator sobre o progresso
+5. Divulgação coordenada após a correção ser implementada
+
 ## Melhores Práticas de Segurança
 
-Ao usar o SDK do AbacatePay, siga estas diretrizes:
+Ao usar os SDKs da AbacatePay, siga estas diretrizes:
 
 ### Segurança de Tokens API
 - Nunca adicione seus tokens API ao controle de versão
@@ -51,10 +61,8 @@ try {
 }
 ```
 
-### Atualizações de Segurança
-Mantenha seu SDK sempre atualizado para as versões mais recentes, que incluem correções de segurança. Monitore os anúncios de segurança em nosso repositório GitHub e no CHANGELOG.md.
-
 ## Divulgação Responsável
+
 Seguimos uma política de divulgação responsável:
 
 1. Reconhecemos os relatórios de segurança dentro de 48 horas
@@ -64,4 +72,5 @@ Seguimos uma política de divulgação responsável:
 5. Damos crédito aos pesquisadores de segurança que relataram a vulnerabilidade (se desejarem)
 
 ## Hall da Fama
-Agradecemos a todos os pesquisadores de segurança que contribuíram para tornar nosso SDK mais seguro. Os colaboradores que relataram vulnerabilidades significativas são listados em nosso Hall da Fama de Segurança, mediante consentimento.
+
+Agradecemos a todos os pesquisadores de segurança que contribuíram para tornar nossos SDKs mais seguros. Os colaboradores que relataram vulnerabilidades significativas são listados em nosso Hall da Fama de Segurança, mediante consentimento.

@@ -47,102 +47,114 @@ Siga estas etapas ao revisar PRs:
    - Existem possíveis problemas de desempenho ou segurança?
    - A implementação é consistente com o restante do SDK?
 
-3. **Documentação e Testes**
-   - A documentação foi atualizada?
-   - Existem testes adequados para a nova funcionalidade ou correção de bug?
-   - O CHANGELOG foi atualizado, se necessário?
+3. **Verificação de Documentação**
+   - As alterações estão documentadas adequadamente?
+   - Os exemplos de código foram atualizados?
+   - Há um changeset descrevendo as alterações?
 
 4. **Feedback**
-   - Seja claro e construtivo em seu feedback
-   - Explique o "porquê" das sugestões, não apenas o "o quê"
+   - Forneça feedback construtivo e específico
+   - Explique o "porquê" por trás das sugestões
    - Reconheça os aspectos positivos da contribuição
 
-5. **Conclusão**
-   - Aprove, solicite alterações, ou rejeite com uma explicação clara
-   - Para PRs aprovados, decida entre "Squash and merge", "Rebase and merge", ou "Create a merge commit" (preferimos "Squash and merge" para manter o histórico limpo)
+5. **Aprovação e Merge**
+   - Aprove a PR quando todas as questões forem resolvidas
+   - Use squash merge para manter o histórico limpo
+   - Verifique se o título do commit segue a convenção de commits
 
-## Processo de Lançamento
+## Gestão de Issues
 
-Para lançar uma nova versão:
+### Triagem
 
-1. **Preparação**
-   - Certifique-se de que todas as mudanças desejadas foram mescladas na branch principal
-   - Revise o CHANGELOG para garantir que está completo e preciso
-   - Verifique se a documentação está atualizada
-   - Execute a suite completa de testes
+Ao receber uma nova issue:
 
-2. **Criação da Versão**
-   - Atualize a versão no arquivo de configuração do projeto
-   - Crie uma tag Git no formato `v1.2.3`
-   - Crie uma GitHub Release com notas detalhadas
-   - Publique o pacote no registro relevante (npm, PyPI, etc.)
+1. Verifique se contém todas as informações necessárias
+2. Adicione etiquetas apropriadas (bug, feature, documentation, etc.)
+3. Atribua a um milestone, se aplicável
+4. Responda ao autor, mesmo que seja apenas para reconhecer o recebimento
 
-3. **Anúncio**
-   - Informe a equipe de marketing para anunciar a nova versão, se aplicável
-   - Atualize a documentação online, se houver
+### Etiquetas Recomendadas
 
-## Manutenção Entre Lançamentos
+- `bug`: Problemas no código existente
+- `feature`: Solicitações de novas funcionalidades
+- `documentation`: Problemas ou melhorias na documentação
+- `good first issue`: Boas issues para novos contribuidores
+- `help wanted`: Issues onde precisamos de ajuda da comunidade
+- `security`: Questões relacionadas à segurança
+- `wontfix`: Issues que decidimos não resolver
 
-Entre os lançamentos, mantenha um ritmo constante de:
+### Fechamento de Issues
 
-- Revisar e mesclar PRs regularmente
-- Resolver issues pendentes
-- Atualizar dependências regularmente usando ferramentas como Dependabot
-- Monitorar problemas de segurança e aplicar patches conforme necessário
+Feche issues quando:
 
-## Gestão de Comunicação
+- O problema foi resolvido e mesclado na branch principal
+- A solicitação de recurso foi implementada
+- A issue está duplicada
+- A issue está desatualizada ou não é mais relevante
 
-- **Tempo de Resposta**: Tente responder a issues e PRs dentro de 3 dias úteis
-- **Comunicação Clara**: Seja conciso e objetivo em suas comunicações
-- **Conflitos**: Ao lidar com discussões acaloradas, mantenha a calma e foque nos aspectos técnicos
+Sempre forneça uma explicação ao fechar uma issue.
 
-## Consistência Entre SDKs
+## Processo de Release
 
-Para manter consistência entre os diferentes SDKs:
+### Preparação
 
-- Coordene grandes mudanças com mantenedores de outros SDKs
-- Compartilhe aprendizados e melhores práticas entre equipes
-- Siga as mesmas convenções de nomenclatura quando possível
-- Implemente recursos similares em todos os SDKs, adaptando para idiomas específicos quando necessário
+1. Verifique se todos os changesets estão atualizados
+2. Execute a suite completa de testes
+3. Verifique se a documentação está atualizada
 
-## Orientações para Novos Mantenedores
+### Execução
 
-Se você é um novo mantenedor:
+1. Mescle o PR de release criado pelo Changesets
+2. Verifique se a publicação automática foi bem-sucedida
+3. Verifique se a tag foi criada corretamente
 
-1. Familiarize-se com o código base e a documentação
-2. Observe o histórico de issues e PRs para entender o ritmo e estilo do projeto
-3. Comece com tarefas mais simples antes de assumir responsabilidades maiores
-4. Peça mentoria a mantenedores mais experientes
-5. Estude a API da AbacatePay para entender completamente o que o SDK está implementando
+### Pós-Release
 
-## Aprendizado Contínuo
+1. Anuncie o release nos canais apropriados
+2. Monitore relatórios de problemas após o release
+3. Atualize a documentação online, se necessário
 
-Incentivamos todos os mantenedores a:
+## Comunicação
 
-- Acompanhar as tendências da linguagem que mantêm
-- Estudar as melhores práticas para design de API
-- Participar de eventos e fóruns relacionados
-- Compartilhar conhecimento com outros mantenedores
+### Com Contribuidores
 
-## Reconhecimento
+- Responda a comentários e PRs em tempo hábil
+- Seja respeitoso e construtivo
+- Explique claramente as decisões de design
+- Agradeça pelas contribuições
 
-Os mantenedores são fundamentais para o sucesso do ecossistema de SDKs da AbacatePay. Seu trabalho é reconhecido através de:
+### Entre Mantenedores
 
-- Crédito explícito no README e em outros materiais
-- Acesso a recursos adicionais para desenvolvimento
-- Oportunidades de participar em eventos e discussões estratégicas
+- Use o canal privado para discussões entre mantenedores
+- Realize reuniões regulares para discutir o roadmap
+- Documente decisões importantes
 
-## Rotação e Transição
+## Segurança
 
-Se você precisar deixar o papel de mantenedor:
+### Tratamento de Vulnerabilidades
 
-1. Notifique a equipe com pelo menos 30 dias de antecedência, se possível
-2. Documente o estado atual do seu trabalho
-3. Ajude a treinar um novo mantenedor, se aplicável
-4. Transfira responsabilidades gradualmente
+1. Avalie a gravidade da vulnerabilidade relatada
+2. Para problemas críticos, prepare um patch imediatamente
+3. Coordene a divulgação com o relator da vulnerabilidade
+4. Siga o processo descrito em SECURITY.md
 
-## Contato
+### Verificações Regulares
 
-Para questões relacionadas à manutenção, entre em contato com:
-- **Coordenador de SDKs**: sdks@abacatepay.com
-- **Equipe de Engenharia**: engineering@abacatepay.com
+1. Execute verificações de dependências regularmente
+2. Monitore alertas de segurança
+3. Atualize dependências com vulnerabilidades conhecidas
+
+## Melhores Práticas
+
+1. **Mantenha-se atualizado**: Acompanhe as tendências e melhores práticas da comunidade
+2. **Automatize o que puder**: Use CI/CD para reduzir trabalho manual
+3. **Documente decisões**: Mantenha um registro das decisões de design importantes
+4. **Delegue responsabilidades**: Envolva contribuidores regulares em tarefas de manutenção
+5. **Cuide da saúde do projeto**: Monitore métricas como tempo de resposta a issues e PRs
+
+## Recursos para Mantenedores
+
+- [Guia de Versionamento](VERSIONING.md)
+- [Convenção de Commits](COMMIT_CONVENTION.md)
+- [Processo de CI/CD](CI_CD.md)
+- [Política de Segurança](SECURITY.md)

@@ -1,17 +1,20 @@
 # Convenção de Commits
 
-Este documento serve como referência completa para a convenção de commits usada nos SDKs da AbacatePay. Seguir estas diretrizes ajuda a manter um histórico de commits limpo, facilita a geração automática de changelogs e torna mais fácil entender o propósito de cada alteração.
+Este documento serve como referência para a convenção de commits usada nos SDKs da AbacatePay. Seguir estas diretrizes ajuda a manter um histórico de commits limpo, facilita a geração automática de changelogs e torna mais fácil entender o propósito de cada alteração.
 
 ## Formato Básico
 
-Cada mensagem de commit consiste em um **cabeçalho**, um **corpo** e um **rodapé**. O cabeçalho tem um formato especial que inclui um **tipo**, um **escopo** opcional e uma **descrição**:
+Cada mensagem de commit consiste em um **cabeçalho**, um **corpo** opcional e um **rodapé** opcional. O cabeçalho tem um formato especial que inclui um **tipo**, um **escopo** opcional e uma **descrição**:
+
+```
 <tipo>[escopo opcional]: <descrição>
+
 [corpo opcional]
+
 [rodapé(s) opcional(is)]
+```
 
-O **cabeçalho** é obrigatório, mas **escopo**, **corpo** e **rodapé** são opcionais.
-
-## Tipos Comuns de Commit
+## Tipos de Commit
 
 - `feat`: Nova funcionalidade adicionada ao código
 - `fix`: Correção de bug no código
@@ -49,34 +52,44 @@ Breaking Changes devem começar com a palavra `BREAKING CHANGE:` seguida de um e
 ## Exemplos
 
 ### Commit simples
+```
 feat: adiciona método de validação de CPF
+```
 
 ### Com escopo
+```
 feat(auth): adiciona suporte para autenticação OAuth2
+```
 
 ### Com corpo e rodapé
+```
 fix(api): corrige tratamento de erros HTTP 500
+
 Anteriormente, erros 500 causavam falha completa no cliente.
 Agora eles são capturados e retentativas são feitas automaticamente.
+
 Closes #123
+```
 
 ### Breaking change
+```
 feat(api): redesenha interface de pagamentos
+
 BREAKING CHANGE: A API de pagamentos foi redesenhada para melhorar a usabilidade.
 Para migrar, substitua chamadas a payment.create() por payment.process()
 e atualize o formato dos objetos de pagamento conforme a documentação.
+
 Fixes #234
+```
 
-## Diretrizes Adicionais
+## Ferramentas Recomendadas
 
-1. **Commits atômicos**: Cada commit deve representar uma única alteração lógica. Não misture alterações não relacionadas em um único commit.
+Para facilitar a adoção desta convenção, recomendamos o uso das seguintes ferramentas:
 
-2. **Clareza acima de brevidade**: Se uma descrição mais longa ajudar a explicar o propósito do commit, use-a.
+- **commitlint**: Valida mensagens de commit
+- **commitizen**: Interface interativa para criar commits formatados
+- **husky**: Configura git hooks para validar commits antes de serem criados
 
-3. **Referencie issues**: Sempre referencie issues relacionadas no rodapé do commit, usando palavras-chave como `Fixes`, `Resolves` ou `Related to`.
+## Integração com Changesets
 
-4. **Não misture tipos**: Se você tem alterações de vários tipos (ex: uma nova funcionalidade e correção de documentação), considere fazer commits separados.
-
-## Geração Automática de CHANGELOG
-
-Seguir esta convenção de commits permite a geração automática de changelogs detalhados, usando ferramentas como o `standard-version` ou `conventional-changelog`.
+Esta convenção de commits trabalha em conjunto com o sistema de Changesets para gerenciar versões e changelogs de forma eficiente.

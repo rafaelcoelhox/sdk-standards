@@ -1,6 +1,6 @@
 # Guia de Contribuição
 
-Obrigado pelo interesse em contribuir para o SDK Node.js do AbacatePay! Este documento contém as diretrizes que você deve seguir para contribuir de maneira eficaz.
+Obrigado pelo interesse em contribuir para os SDKs da AbacatePay! Este documento contém as diretrizes que você deve seguir para contribuir de maneira eficaz.
 
 ## Código de Conduta
 
@@ -9,7 +9,7 @@ Este projeto segue o [Código de Conduta](CODE_OF_CONDUCT.md). Ao participar, vo
 ## Fluxo de Trabalho de Desenvolvimento
 
 1. Faça um fork do repositório
-2. Clone seu fork: `git clone https://github.com/seu-usuario/abacatepay-nodejs-sdk.git`
+2. Clone seu fork: `git clone https://github.com/seu-usuario/abacatepay-sdk.git`
 3. Crie uma branch para sua feature: `git checkout -b feature/nome-da-feature`
 4. Faça suas alterações seguindo as convenções de código
 5. Execute os testes: `npm test`

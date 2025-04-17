@@ -1,160 +1,59 @@
-# AbacatePay Node.js SDK
+# Padrões para SDKs da AbacatePay
 
-SDK oficial para integração com a plataforma AbacatePay em Node.js/JavaScript.
+Este repositório contém os padrões, diretrizes e documentação de referência para todos os SDKs oficiais da AbacatePay.
 
-[![Versão atual](https://img.shields.io/npm/v/abacatepay-nodejs-sdk)](https://www.npmjs.com/package/abacatepay-nodejs-sdk)
-[![Build Status](https://github.com/AbacatePay/abacatepay-nodejs-sdk/workflows/CI/badge.svg)](https://github.com/AbacatePay/abacatepay-nodejs-sdk/actions)
-[![Licença](https://img.shields.io/badge/licença-MIT-green.svg)](LICENSE)
+## Visão Geral
 
-## Instalação
+A AbacatePay mantém SDKs em várias linguagens de programação para facilitar a integração com nossa API de pagamentos. Este repositório centraliza os padrões que todos os SDKs devem seguir, garantindo consistência e qualidade em todas as implementações.
 
-```bash
-npm install abacatepay-nodejs-sdk
-```
+## SDKs Oficiais
 
-## Uso Rápido
+- [Node.js SDK](https://github.com/AbacatePay/abacatepay-nodejs-sdk)
+- [Python SDK](https://github.com/AbacatePay/abacatepay-python-sdk)
+- [PHP SDK](https://github.com/AbacatePay/abacatepay-php-sdk)
+- [Java SDK](https://github.com/AbacatePay/abacatepay-java-sdk)
+- [Go SDK](https://github.com/AbacatePay/abacatepay-go-sdk)
+- [Ruby SDK](https://github.com/AbacatePay/abacatepay-ruby-sdk)
+- [Elixir SDK](https://github.com/AbacatePay/abacatepay-elixir-sdk)
+- [Rust SDK](https://github.com/AbacatePay/abacatepay-rust-sdk)
 
-```javascript
-import AbacatePay from 'abacatepay-nodejs-sdk';
+## Documentação
 
-// Inicialize o SDK com sua API key
-const abacate = AbacatePay('your_api_key');
+### Para Usuários
+- [Guia de Início Rápido](./examples/README.md)
+- [Política de Segurança](./maintainers/SECURITY.md)
+- [Política de Versionamento](./VERSIONING.md)
 
-// Criar um pagamento
-const billing = await abacate.billing.create({
-  frequency: "ONE_TIME",
-  methods: ["PIX"],
-  products: [
-    {
-      externalId: "PRO-PLAN",
-      name: "Pro plan",
-      quantity: 1,
-      price: 1000 // Valor em centavos
-    }
-  ],
-  returnUrl: "https://seusite.com/app",
-  completionUrl: "https://seusite.com/pagamento/sucesso",
-  customer: {
-    email: 'cliente@exemplo.com'
-  }
-});
+### Para Contribuidores
+- [Guia de Contribuição](./contributing/CONTRIBUTING.md)
+- [Código de Conduta](./contributing/CODE_OF_CONDUCT.md)
+- [Guia de Estilo](./contributing/STYLE_GUIDE.md)
+- [Diretrizes de Testes](./contributing/TESTING_GUIDELINES.md)
+- [Diretrizes de Documentação](./contributing/DOCUMENTATION_GUIDELINES.md)
+- [Convenção de Commits](./contributing/COMMIT_CONVENTION.md)
 
-console.log(billing.url); // URL de pagamento para seu cliente
-```
+### Para Mantenedores
+- [Guia para Mantenedores](./maintainers/MAINTAINERS.md)
+- [Processo de Release](./maintainers/RELEASE_PROCESS.md)
+- [CI/CD](./maintainers/CI_CD.md)
+- [Gerenciamento de Dependências](./maintainers/DEPENDENCY_MANAGEMENT.md)
 
-## Funcionalidades
+## Roadmap
 
-- Billing: Criação e gerenciamento de cobranças
-- Customers: Gerenciamento de clientes
-- Coupons: Criação e gestão de cupons de desconto
-- Suporte completo a PIX: Pagamentos instantâneos brasileiros
-- TypeScript: Tipos completos para melhor experiência de desenvolvimento
+Veja nosso [Roadmap](./ROADMAP.md) para conhecer os planos futuros para os SDKs da AbacatePay.
 
-## Documentação Detalhada
+## Como Usar Este Repositório
 
-### Autenticação
+### Para Mantenedores de SDK
+1. Clone este repositório
+2. Use os templates e diretrizes para configurar seu SDK específico
+3. Referencie este repositório na documentação do seu SDK
 
-```javascript
-import AbacatePay from 'abacatepay-nodejs-sdk';
-
-// Inicialize o SDK com sua API key
-const abacate = AbacatePay('your_api_key');
-```
-
-### Criando uma Cobrança
-
-```javascript
-const billing = await abacate.billing.create({
-  frequency: "ONE_TIME",
-  methods: ["PIX"],
-  products: [
-    {
-      externalId: "123",
-      name: "Produto de Teste",
-      quantity: 1,
-      price: 1000,
-      description: "Descrição do produto"
-    }
-  ],
-  returnUrl: "https://seusite.com/retorno",
-  completionUrl: "https://seusite.com/conclusao",
-  customer: {
-    name: "Nome do Cliente",
-    cellphone: "(11) 99999-9999",
-    email: "cliente@exemplo.com",
-    taxId: "123.456.789-10"
-  }
-});
-```
-
-### Listando Cobranças
-
-```javascript
-const billings = await abacate.billing.list();
-for (const billing of billings) {
-  console.log(billing.id, billing.status);
-}
-```
-
-### Gerenciando Clientes
-
-```javascript
-// Criar um cliente
-const customer = await abacate.customer.create({
-  name: "Nome do Cliente",
-  cellphone: "(11) 99999-9999",
-  email: "cliente@exemplo.com",
-  taxId: "123.456.789-10"
-});
-
-// Listar clientes
-const customers = await abacate.customer.list();
-```
-
-### Criando Cupons de Desconto
-
-```javascript
-const coupon = await abacate.coupon.create({
-  code: "PROMO10",
-  discountKind: "PERCENTAGE",
-  discount: 10,
-  maxRedeems: 100
-});
-```
-
-## Requisitos
-
-- Node.js 14.x ou superior
-- npm ou yarn
-
-## Configuração para Ambiente de Desenvolvimento
-
-```bash
-# Clone o repositório
-git clone https://github.com/AbacatePay/abacatepay-nodejs-sdk.git
-cd abacatepay-nodejs-sdk
-
-# Instale as dependências
-npm install
-
-# Execute os testes
-npm test
-```
-
-## Contribuindo
-
-Contribuições são bem-vindas! Por favor, leia nosso guia de contribuição antes de enviar pull requests.
-
-## Segurança
-
-Se você descobrir uma vulnerabilidade de segurança, por favor envie um email para ajuda@abacatepay.com ao invés de abrir uma issue pública. Mais detalhes em nossa política de segurança.
-
-## Suporte
-
-- Documentação oficial: https://docs.abacatepay.com
-- GitHub Issues: Para bugs e solicitações de funcionalidades
-- Email: ajuda@abacatepay.com
+### Para Contribuidores
+1. Familiarize-se com as diretrizes de contribuição
+2. Siga o guia de estilo e as convenções de código
+3. Consulte as diretrizes específicas para o SDK em que deseja contribuir
 
 ## Licença
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para detalhes.
+Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.

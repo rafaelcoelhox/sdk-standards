@@ -1,5 +1,3 @@
-
-```markdown
 ---
 name: Solicitação de Funcionalidade
 about: Sugira uma ideia para este projeto

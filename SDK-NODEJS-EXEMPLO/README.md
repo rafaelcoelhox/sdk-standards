@@ -157,7 +157,6 @@ Se você descobrir uma vulnerabilidade de segurança, por favor envie um email p
 - [Convenção de Commits](https://github.com/rafaelcoelhox/sdk-standards/blob/main/COMMIT_CONVENTION.md)
 - [Gerenciamento de Dependências](https://github.com/rafaelcoelhox/sdk-standards/blob/main/DEPENDENCY_MANAGEMENT.md)
 - [CI/CD](https://github.com/rafaelcoelhox/sdk-standards/blob/main/CI_CD.md)
-- [Roadmap](https://github.com/rafaelcoelhox/sdk-standards/blob/main/ROADMAP.md)
 - [Código de Conduta](https://github.com/rafaelcoelhox/sdk-standards/blob/main/CODE_OF_CONDUCT.md)
 
 ## Suporte

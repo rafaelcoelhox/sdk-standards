@@ -80,10 +80,3 @@ Fixes #234
 ## Geração Automática de CHANGELOG
 
 Seguir esta convenção de commits permite a geração automática de changelogs detalhados, usando ferramentas como o `standard-version` ou `conventional-changelog`.
-
-## Ferramentas Recomendadas
-
-- **commitlint**: Para verificar automaticamente se suas mensagens de commit seguem a convenção
-- **commitizen**: Interface de linha de comando que ajuda a criar commits no formato correto
-- **husky**: Para configurar hooks de git que garantem que os commits sigam a convenção
-Você já criou este arquivo na raiz do seu repositório?Tentar novamenteO Claude pode cometer erros. Confira sempre as respostas.Explanatory 3.7 Sonnet

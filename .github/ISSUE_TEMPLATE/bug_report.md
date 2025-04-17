@@ -28,14 +28,20 @@ try {
 } catch (error) {
   console.error(error);
 }
-Ambiente
+```
 
-SDK Versão: [ex: 1.2.1]
-Node.js Versão: [ex: 16.15.0]
-Sistema Operacional: [ex: Ubuntu 22.04, Windows 11]
-Ambiente: [ex: Produção, Desenvolvimento]
+## Ambiente
+- SDK Versão: [ex: 1.2.1]
+- Node.js Versão: [ex: 16.15.0]
+- Sistema Operacional: [ex: Ubuntu 22.04, Windows 11]
+- Ambiente: [ex: Produção, Desenvolvimento]
 
-Capturas de Tela ou Logs
+## Capturas de Tela ou Logs
 Se aplicável, adicione capturas de tela ou logs para ajudar a explicar seu problema.
-Contexto Adicional
+
+## Contexto Adicional
 Adicione qualquer outro contexto sobre o problema aqui.
+
+## Verificação de Segurança
+- [ ] Confirmei que este relatório não expõe informações sensíveis (tokens API, credenciais, etc.)
+- [ ] Se este bug estiver relacionado à segurança, segui o processo descrito em [SECURITY.md](../../maintainers/SECURITY.md)

@@ -5,7 +5,7 @@
 A equipe do AbacatePay leva a sério a segurança dos nossos SDKs. Se você descobrir uma vulnerabilidade de segurança, por favor, siga estas etapas:
 
 1. **NÃO** abra uma issue pública
-2. Envie um e-mail para [ajuda@abacatepay.com](mailto:seguranca@abacatepay.com)
+2. Envie um e-mail para [seguranca@abacatepay.com](mailto:seguranca@abacatepay.com)
 3. Inclua informações detalhadas sobre a vulnerabilidade
 4. Aguarde uma resposta inicial em até 48 horas
 5. Por favor, evite compartilhar os detalhes da vulnerabilidade publicamente até que tenhamos tido a chance de resolvê-la

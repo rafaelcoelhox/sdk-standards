@@ -1,62 +1,124 @@
-# AbacatePay SDK Standards
+# AbacatePay Node.js SDK
 
-Este repositório contém os padrões, diretrizes e recursos compartilhados para todos os SDKs oficiais da AbacatePay. Ele serve como fonte de verdade para mantenedores e contribuidores dos SDKs.
+SDK oficial para integração com a plataforma AbacatePay em Node.js/JavaScript.
 
-## SDKs Oficiais
+[![Versão atual](https://img.shields.io/npm/v/abacatepay-nodejs-sdk)](https://www.npmjs.com/package/abacatepay-nodejs-sdk)
+[![Build Status](https://github.com/AbacatePay/abacatepay-nodejs-sdk/workflows/CI/badge.svg)](https://github.com/AbacatePay/abacatepay-nodejs-sdk/actions)
+[![Licença](https://img.shields.io/badge/licença-MIT-green.svg)](LICENSE)
 
-A AbacatePay mantém os seguintes SDKs oficiais:
+## Instalação
 
-- [abacatepay-nodejs-sdk](https://github.com/AbacatePay/abacatepay-nodejs-sdk) - SDK para Node.js/JavaScript
-- [abacatepay-python-sdk](https://github.com/AbacatePay/abacatepay-python-sdk) - SDK para Python
-- [abacatepay-php-sdk](https://github.com/AbacatePay/abacatepay-php-sdk) - SDK para PHP
-- [abacatepay-java-sdk](https://github.com/AbacatePay/abacatepay-java-sdk) - SDK para Java
-- [abacatepay-go-sdk](https://github.com/AbacatePay/abacatepay-go-sdk) - SDK para Go
-- [abacatepay-cli](https://github.com/AbacatePay/abacatepay-cli) - CLI para interagir com a AbacatePay
+```bash
+npm install abacatepay-nodejs-sdk
+Uso Rápido
+javascriptimport AbacatePay from 'abacatepay-nodejs-sdk';
 
-## Documentos Principais
+// Inicialize o SDK com sua API key
+const abacate = AbacatePay('your_api_key');
 
-- [CONTRIBUTING.md](./CONTRIBUTING.md) - Diretrizes gerais para contribuir com os SDKs da AbacatePay
-- [VERSIONING.md](./VERSIONING.md) - Nossa política de versionamento e lançamentos
-- [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) - Código de conduta para contribuidores
-- [SECURITY.md](./SECURITY.md) - Política de segurança e como reportar vulnerabilidades
-- [MAINTAINERS.md](./MAINTAINERS.md) - Guia para mantenedores dos SDKs
+// Criar um pagamento
+const billing = await abacate.billing.create({
+  frequency: "ONE_TIME",
+  methods: ["PIX"],
+  products: [
+    {
+      externalId: "PRO-PLAN",
+      name: "Pro plan",
+      quantity: 1,
+      price: 1000 // Valor em centavos
+    }
+  ],
+  returnUrl: "https://seusite.com/app",
+  completionUrl: "https://seusite.com/pagamento/sucesso",
+  customer: {
+    email: 'cliente@exemplo.com'
+  }
+});
 
-## Templates
+console.log(billing.url); // URL de pagamento para seu cliente
+Funcionalidades
 
-Este repositório contém templates para:
+Billing: Criação e gerenciamento de cobranças
+Customers: Gerenciamento de clientes
+Coupons: Criação e gestão de cupons de desconto
+Suporte completo a PIX: Pagamentos instantâneos brasileiros
+TypeScript: Tipos completos para melhor experiência de desenvolvimento
 
-- [Template de README](./templates/README.md) para SDKs
-- [Templates de Issues](./templates/issue_templates/) para reportar bugs e solicitar funcionalidades
-- [Templates de Workflows](./templates/workflows/) para CI/CD
+Documentação Detalhada
+Autenticação
+javascriptimport AbacatePay from 'abacatepay-nodejs-sdk';
 
-## Como Usar
+// Inicialize o SDK com sua API key
+const abacate = AbacatePay('your_api_key');
+Criando uma Cobrança
+javascriptconst billing = await abacate.billing.create({
+  frequency: "ONE_TIME",
+  methods: ["PIX"],
+  products: [
+    {
+      externalId: "123",
+      name: "Produto de Teste",
+      quantity: 1,
+      price: 1000,
+      description: "Descrição do produto"
+    }
+  ],
+  returnUrl: "https://seusite.com/retorno",
+  completionUrl: "https://seusite.com/conclusao",
+  customer: {
+    name: "Nome do Cliente",
+    cellphone: "(11) 99999-9999",
+    email: "cliente@exemplo.com",
+    taxId: "123.456.789-10"
+  }
+});
+Listando Cobranças
+javascriptconst billings = await abacate.billing.list();
+for (const billing of billings) {
+  console.log(billing.id, billing.status);
+}
+Gerenciando Clientes
+javascript// Criar um cliente
+const customer = await abacate.customer.create({
+  name: "Nome do Cliente",
+  cellphone: "(11) 99999-9999",
+  email: "cliente@exemplo.com",
+  taxId: "123.456.789-10"
+});
 
-### Para Mantenedores
+// Listar clientes
+const customers = await abacate.customer.list();
+Criando Cupons de Desconto
+javascriptconst coupon = await abacate.coupon.create({
+  code: "PROMO10",
+  discountKind: "PERCENTAGE",
+  discount: 10,
+  maxRedeems: 100
+});
+Requisitos
 
-Se você é um mantenedor de um dos SDKs oficiais da AbacatePay:
+Node.js 14.x ou superior
+npm ou yarn
 
-1. Familiarize-se com este repositório, especialmente o documento [MAINTAINERS.md](./MAINTAINERS.md)
-2. Use os scripts em `./scripts/` para aplicar padrões consistentes ao seu SDK
-3. Certifique-se de que seu SDK segue o modelo de versionamento semântico descrito em [VERSIONING.md](./VERSIONING.md)
-4. Implemente os workflows de CI/CD apropriados para a linguagem do seu SDK
+Configuração para Ambiente de Desenvolvimento
+bash# Clone o repositório
+git clone https://github.com/AbacatePay/abacatepay-nodejs-sdk.git
+cd abacatepay-nodejs-sdk
 
-### Para Contribuidores
+# Instale as dependências
+npm install
 
-Se você deseja contribuir com qualquer um dos SDKs da AbacatePay:
+# Execute os testes
+npm test
+Contribuindo
+Contribuições são bem-vindas! Por favor, leia nosso guia de contribuição antes de enviar pull requests.
+Segurança
+Se você descobrir uma vulnerabilidade de segurança, por favor envie um email para ajuda@abacatepay.com ao invés de abrir uma issue pública. Mais detalhes em nossa política de segurança.
+Suporte
 
-1. Leia o [CONTRIBUTING.md](./CONTRIBUTING.md) para entender nosso processo de contribuição
-2. Familiarize-se com o [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
-3. Siga as diretrizes específicas do SDK para o qual deseja contribuir
+Documentação oficial: https://docs.abacatepay.com
+GitHub Issues: Para bugs e solicitações de funcionalidades
+Email: ajuda@abacatepay.com
 
-## Roadmap
-
-Nosso roadmap para os SDKs inclui:
-
-- Padronização completa de todos os SDKs
-- Melhoria contínua da documentação
-- Implementação consistente de recursos em todas as linguagens
-- Expansão para novas linguagens de programação (Ruby, .NET, etc.)
-
-## Licença
-
-Todos os conteúdos deste repositório estão licenciados sob a licença MIT.
+Licença
+Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para detalhes.

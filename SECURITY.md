@@ -5,7 +5,7 @@
 A equipe do AbacatePay leva a sério a segurança dos nossos SDKs. Se você descobrir uma vulnerabilidade de segurança, por favor, siga estas etapas:
 
 1. **NÃO** abra uma issue pública
-2. Envie um e-mail para [seguranca@abacatepay.com](mailto:seguranca@abacatepay.com)
+2. Envie um e-mail para [ajuda@abacatepay.com](mailto:ajuda@abacatepay.com)
 3. Inclua informações detalhadas sobre a vulnerabilidade
 4. Aguarde uma resposta inicial em até 48 horas
 5. Por favor, evite compartilhar os detalhes da vulnerabilidade publicamente até que tenhamos tido a chance de resolvê-la
@@ -19,3 +19,49 @@ Ao usar o SDK do AbacatePay, siga estas diretrizes:
 - Use variáveis de ambiente ou sistemas seguros de gerenciamento de segredos
 - Troque seus tokens API periodicamente
 - Use tokens diferentes para ambientes de desenvolvimento e produção
+
+```javascript
+// Prática Recomendada
+const abacate = AbacatePay(process.env.ABACATEPAY_API_KEY);
+
+// NUNCA faça isso
+const abacate = AbacatePay("api_key_123456789");
+```
+
+### Validação de Entrada
+Sempre valide os dados de entrada antes de enviá-los para a API:
+
+```javascript
+// Sempre verifique valores antes de enviar
+if (amount <= 0) {
+  throw new Error("O valor deve ser maior que zero");
+}
+```
+
+### Tratamento de Erros
+Implemente tratamento adequado de erros para lidar com falhas de API de forma segura:
+
+```javascript
+try {
+  const billing = await abacate.billing.create(data);
+} catch (error) {
+  // Registre o erro sem expor informações sensíveis
+  console.error("Erro ao criar cobrança:", error.message);
+  // Implemente recovery adequado
+}
+```
+
+### Atualizações de Segurança
+Mantenha seu SDK sempre atualizado para as versões mais recentes, que incluem correções de segurança. Monitore os anúncios de segurança em nosso repositório GitHub e no CHANGELOG.md.
+
+## Divulgação Responsável
+Seguimos uma política de divulgação responsável:
+
+1. Reconhecemos os relatórios de segurança dentro de 48 horas
+2. Confirmamos a vulnerabilidade e determinamos seu impacto
+3. Desenvolvemos uma correção e testamos internamente
+4. Lançamos a correção e notificamos a comunidade
+5. Damos crédito aos pesquisadores de segurança que relataram a vulnerabilidade (se desejarem)
+
+## Hall da Fama (avaliar essa possibilidade com chrys e daniel)
+Agradecemos a todos os pesquisadores de segurança que contribuíram para tornar nosso SDK mais seguro. Os colaboradores que relataram vulnerabilidades significativas são listados em nosso Hall da Fama de Segurança, mediante consentimento.

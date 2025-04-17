@@ -1,5 +1,3 @@
-# Código de Conduta
-
 ## Nosso Compromisso
 
 Nós, como membros, contribuidores e líderes, nos comprometemos a tornar a participação em nossa comunidade uma experiência livre de assédio para todos, independentemente de idade, corpo, tamanho, deficiência, etnia, características sexuais, identidade e expressão de gênero, nível de experiência, educação, status socioeconômico, nacionalidade, aparência pessoal, raça, religião ou identidade e orientação sexual.
@@ -12,7 +10,7 @@ Exemplos de comportamento que contribuem para um ambiente positivo:
 
 * Demonstrar empatia e bondade para com outras pessoas
 * Respeitar opiniões, pontos de vista e experiências diferentes
-* Dar e aceitar feedback construtivo com elegância
+* Dar e aceitar feedback construtivo com educação e respeito
 * Aceitar a responsabilidade e pedir desculpas aos afetados por nossos erros
 * Focar no que é melhor não apenas para nós como indivíduos, mas para a comunidade como um todo
 

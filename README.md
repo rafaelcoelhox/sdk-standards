@@ -19,11 +19,6 @@ A AbacatePay mantém SDKs em várias linguagens de programação para facilitar 
 
 ## Documentação
 
-### Para Usuários
-- [Guia de Início Rápido](./examples/README.md)
-- [Política de Segurança](./maintainers/SECURITY.md)
-- [Política de Versionamento](./VERSIONING.md)
-
 ### Para Contribuidores
 - [Guia de Contribuição](./contributing/CONTRIBUTING.md)
 - [Código de Conduta](./contributing/CODE_OF_CONDUCT.md)

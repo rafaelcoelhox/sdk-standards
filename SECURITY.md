@@ -71,6 +71,6 @@ Seguimos uma política de divulgação responsável:
 4. Lançamos a correção e notificamos a comunidade
 5. Damos crédito aos pesquisadores de segurança que relataram a vulnerabilidade (se desejarem)
 
-## Hall da Fama
+## Hall da Fama (confirmar isso com chrys e daniel)
 
 Agradecemos a todos os pesquisadores de segurança que contribuíram para tornar nossos SDKs mais seguros. Os colaboradores que relataram vulnerabilidades significativas são listados em nosso Hall da Fama de Segurança, mediante consentimento.

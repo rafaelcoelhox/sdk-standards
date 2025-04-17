@@ -20,15 +20,6 @@ Utilizamos o GitHub Dependabot para:
 
 Configuração: `.github/dependabot.yml`
 
-### Renovate (Alternativa)
-
-Para projetos com necessidades mais avançadas, utilizamos o Renovate Bot para:
-- Agrupar atualizações relacionadas
-- Programar atualizações em horários específicos
-- Aplicar regras personalizadas por tipo de dependência
-
-Configuração: `renovate.json`
-
 ## Política de Atualizações
 
 ### Dependências de Produção

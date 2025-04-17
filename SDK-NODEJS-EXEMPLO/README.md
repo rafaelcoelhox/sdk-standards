@@ -151,7 +151,6 @@ Se você descobrir uma vulnerabilidade de segurança, por favor envie um email p
 
 ## Documentação Adicional
 
-- [Processo de Release](https://github.com/rafaelcoelhox/sdk-standards/blob/main/RELEASE_PROCESS.md)
 - [Guia de Estilo](https://github.com/rafaelcoelhox/sdk-standards/blob/main/STYLE_GUIDE.md)
 - [Diretrizes de Testes](https://github.com/rafaelcoelhox/sdk-standards/blob/main/TESTING_GUIDELINES.md)
 - [Convenção de Commits](https://github.com/rafaelcoelhox/sdk-standards/blob/main/COMMIT_CONVENTION.md)

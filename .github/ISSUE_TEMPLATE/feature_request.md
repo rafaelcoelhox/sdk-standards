@@ -20,12 +20,3 @@ Explique como esta funcionalidade seria útil em seu caso de uso específico.
 
 ## Exemplo de Implementação
 Se possível, forneça um exemplo de como você imagina que a API seria usada:
-
-```javascript
-// Exemplo de como a nova funcionalidade seria utilizada
-abacate.novaFuncionalidade({
-  param1: 'valor1',
-  param2: 'valor2'
-});
-Contexto Adicional
-Adicione qualquer outro contexto ou capturas de tela sobre a solicitação de funcionalidade aqui.

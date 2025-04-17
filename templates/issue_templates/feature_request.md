@@ -1,23 +1,24 @@
+
+```markdown
 ---
-name: Feature request
-about: Sugira uma ideia para este SDK
+name: Solicitação de Funcionalidade
+about: Sugira uma ideia para este projeto
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''
 ---
 
-## Descrição da Funcionalidade
-Uma descrição clara e concisa da funcionalidade que você gostaria de ver.
+## A Funcionalidade Está Relacionada a um Problema?
+Uma descrição clara e concisa do problema. Ex: Fico sempre frustrado quando [...]
 
-## Problema Relacionado
-Este pedido está relacionado a um problema? Por favor, descreva.
-Ex: Sempre fico frustrado quando [...]
+## Descreva a Solução que Você Gostaria
+Uma descrição clara e concisa do que você deseja que aconteça.
 
-## Solução Proposta
-Descreva a solução que você gostaria de ver implementada.
+## Descreva Alternativas que Você Considerou
+Uma descrição clara e concisa de quaisquer soluções ou funcionalidades alternativas que você considerou.
 
-## Alternativas Consideradas
-Descreva soluções ou abordagens alternativas que você considerou.
+## Caso de Uso
+Explique como esta funcionalidade seria útil e em quais cenários.
 
 ## Contexto Adicional
-Qualquer outro contexto, capturas de tela ou exemplos relacionados à solicitação.
+Adicione qualquer outro contexto ou capturas de tela sobre a solicitação de funcionalidade aqui.
